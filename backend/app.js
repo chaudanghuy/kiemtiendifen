@@ -11,6 +11,7 @@ const api = process.env.API_URL;
 const articleRouter = require('./routers/articles');
 const userRouter = require('./routers/users');
 const categoryRouter = require('./routers/categories');
+const crawlRouter = require('./routers/crawl');
 
 // cors
 app.use(cors());
@@ -31,6 +32,7 @@ app.use((err, req, res, next) => {
 app.use(`${api}/articles`, articleRouter);
 app.use(`${api}/users`, userRouter);
 app.use(`${api}/categories`, categoryRouter);
+app.use(`${api}/crawl`, crawlRouter);
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
